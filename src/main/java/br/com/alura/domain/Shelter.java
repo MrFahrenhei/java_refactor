@@ -33,4 +33,15 @@ public class Shelter {
     public String getEmail() {
         return email;
     }
+
+    public void setId(long l) {
+        this.id = l;
+    }
+
+    @Override
+    public String toString(){
+        return """
+                "id": %s, "name": "%s", "phone":"%s", "email": "%s"
+                """.formatted(this.id, this.name, this.phone, this.email);
+    }
 }
