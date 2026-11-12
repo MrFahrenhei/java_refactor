@@ -9,8 +9,7 @@ import java.util.Scanner;
 public class AdopetConsoleApplication {
 
     public static void main(String[] args) {
-        ClientHttpConfiguration client = new ClientHttpConfiguration();
-        ShelterService shelterService = new ShelterService(client);
+        CommandExecutor executor = new CommandExecutor();
         PetService petService = new PetService(client);
         System.out.println("##### BOAS VINDAS AO SISTEMA ADOPET CONSOLE #####");
         try {
@@ -27,7 +26,7 @@ public class AdopetConsoleApplication {
                 opcaoEscolhida = Integer.parseInt(textoDigitado);
 
                 if (opcaoEscolhida == 1) {
-                    shelterService.listShelter();
+                    executor.executeCommand(new ListShelterCommand());
                 } else if (opcaoEscolhida == 2) {
                    shelterService.registerShelter();
                 } else if (opcaoEscolhida == 3) {
